@@ -1,0 +1,228 @@
+<html> 
+    <head>
+        <title>Heart Attack Prediction</title>
+
+
+    </head>
+    <style>
+    @keyframes blink{
+    50%{
+    opacity:0;
+    }
+    80%{
+    opacity:.5;
+    }
+}
+      body
+        {
+        margin-top:0px;
+        margin-left:0px;
+        margin-right:0px;
+        margin-bottom:0px;
+        }
+      .container
+        {
+        padding-bottom:0px;
+        background-image: linear-gradient(to bottom right,#7303c0,#ec38bc);
+        }
+      .Form
+        {
+            background : white;
+            text-align : center;
+            padding-top : 20px;
+            margin-right : 400px;
+            margin-left : 400px;
+            margin-top:100px;
+            border-style: solid;
+            border-width:5px;
+            }
+
+         .display{
+         text-align:center;
+         color:white;
+         font-size:25px;
+         font-family:cursive;
+         }
+         .display1{
+         text-align:center;
+         color:white;
+         font-size:30px;
+         font-family:cursive;
+         animation:blink 1s linear infinite;
+         }
+         .pred{
+         color:white;
+         font-size:30px;
+         text-align:center;
+                }
+         #b1{
+         background-image: linear-gradient(to bottom right,#7303c0,#ec38bc);
+         color: white;
+        height: 30px;
+        width: 500px;
+        border-radius: 25px;
+        font-size: 15px;}
+          @keyframes blinking{
+    50%{
+    opacity:0;
+    }
+    80%{
+    opacity:.5;
+    }
+}
+        #anchor{
+        font-size:20px;
+        animation:blinking 3s linear infinite;
+        }
+        h1{
+          position:absolute;
+    top:8%;
+    left:50%;
+    width:100%;
+    transform: translate(-50%,-50%);
+    text-align:center;
+    text-transform:uppercase;
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    color:white;
+    border-bottom:8px solid white;
+    box-shadow: 0px 10px 10px rgba(0,0,0,.2);}
+     h1 span{
+       position:relative;
+       display:inline-block;
+       animation:animate 1.5s linear infinite;
+       }
+ h1 span:nth-child(1)
+        {
+        animation-delay:0s;
+        }
+    h1 span:nth-child(2)
+        {
+        animation-delay:0.2s;
+        }
+    h1 span:nth-child(3)
+        {
+        animation-delay:0.4s;
+        }
+    h1 span:nth-child(4)
+        {
+        animation-delay:0.6s;
+        }
+    h1 span:nth-child(5)
+        {
+        animation-delay:0.8s;
+        }
+    h1 span:nth-child(6)
+        {
+        animation-delay:1s;
+        }
+    h1 span:nth-child(7)
+        {
+        animation-delay:1.2s;
+        }
+    h1 span:nth-child(8)
+        {
+        animation-delay:1.4s;
+        }
+    h1 span:nth-child(9)
+        {
+        animation-delay:1.6s;
+        }
+    h1 span:nth-child(10)
+        {
+        animation-delay:1.8s;
+        }
+    h1 span:nth-child(11)
+        {
+        animation-delay:2s;
+        }
+         @keyframes animate{
+        0%
+        {
+        transform:translateY(0px);
+        }
+        10%
+        {
+        transform:translateY(-30px);
+        }
+        15%
+        {
+        transform:translateY(0px);
+        }
+        25%
+        {
+        transform:translateY(-20px);
+        }
+        30%
+        {
+        transform:translateY(0px);
+        }
+         40%
+        {
+        transform:translateY(-10px);
+        }
+        45%
+        {
+        transform:translateY(0px);
+        }
+        100%
+        {
+        transform:translateY(0px);
+        }
+      }
+</style>
+    <body>
+        <div class='container'>
+            <h1>
+            <span>L</span>
+            <span>e</span>
+            <span>t</span>
+            <span>'</span>
+            <span>s</span>&nbsp;&nbsp;
+            <span>P</span>
+            <span>r</span>
+            <span>e</span>
+            <span>d</span>
+            <span>i</span>
+            <span>c</span>
+            <span>t</span>
+
+         </h1><br>
+            <form class="Form" action="{{ url_for('predict')}}"method="post">
+                <input type="text" name="age" placeholder="age"> <br><br>
+                <input type="text" name="sex" placeholder="sex"><br><br>
+                <input type="text" name="cp" placeholder="chest pain type"><br><br>
+                <input type="text" name="trestbps" placeholder="resting blood pressure"><br><br>
+                <input type="text" name="chol" placeholder="cholesterol"><br><br>
+                <input type="text" name="fbs" placeholder="blood sugar"><br><br>
+                <input type="text" name="thalach" placeholder="max heart rate achieved"><br><br>
+                <input type="text" name="exang" placeholder="exercise induced angina"><br><br>
+                <button id="b1" type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br>
+                <p >Instruction for how to use this prediction app <a href="hello" id="anchor"> Click me</a></p>
+            </form>
+
+                <div class="display">
+                    <p>Are You going to have a heart attack?</p>            
+                 </div>
+
+             
+                 <div class="display1">
+             
+                    <p>Hit the predict button</p>
+
+                 </div>
+
+             <div class="pred">
+            {{ prediction_text }}
+            </div>
+             
+               </div>
+             
+             
+             
+
+
+
+    </body>
+</html>
